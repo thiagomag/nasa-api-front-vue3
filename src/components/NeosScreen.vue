@@ -75,7 +75,7 @@
         }
   
         try {
-          const response = await axios.post('http://localhost:8080/api/neos', {
+          const response = await axios.post('http://ec2-34-228-189-95.compute-1.amazonaws.com:8080/api/neos', {
             start_date: this.selectedStartDate,
             end_date: this.selectedEndDate
           });
