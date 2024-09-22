@@ -24,8 +24,8 @@ jobs:
         key: ${{ secrets.RASPBERRY_PI_SSH_KEY }}  # Chave SSH privada do Raspberry Pi adicionada nos secrets
         port: 22  # Porta padrão para SSH
         script: |
-          mkdir -p /home/pi/vue3-app  # Ajuste o caminho conforme necessário
-          cd /home/pi/vue3-app
+          mkdir -p /home/${{ secrets.RASPBERRY_PI_USER }}/vue3-app  # Ajuste o caminho conforme necessário
+          cd /home/${{ secrets.RASPBERRY_PI_USER }}/vue3-app
           docker stop $(docker ps -a -q) || true
           docker rm $(docker ps -a -q) || true
           docker pull ${{ secrets.DOCKER_USERNAME }}/nasa-api-front-vue3:latest
