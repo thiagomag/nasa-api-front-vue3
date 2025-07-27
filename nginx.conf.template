@@ -11,11 +11,14 @@ server {
 
     # Proxy para o backend
     # Qualquer chamada para /api/... será redirecionada
-    location /api/ {
-        # O Nginx vai passar a requisição para o backend
-        proxy_pass http://nasa-api-backend:8080/api/;
+location /api/ {
+        # 1. Aponta para o servidor de DNS interno do Docker.
+        resolver 127.0.0.11 valid=10s;
+        
+        # 2. Usa uma variável para que o Nginx resolva o DNS dinamicamente.
+        set $upstream_url http://${BACKEND_URL};
+        proxy_pass $upstream_url;
 
-        # Cabeçalhos importantes para o proxy
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
