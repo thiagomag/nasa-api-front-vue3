@@ -4,13 +4,7 @@ services:
     ports:
       - "8082:80"
     environment:
-      - VITE_API_URL=http://localhost:8080
-    networks:
-      - rpi-network
+      - VITE_API_URL=http://nasa-api-backend:8081
 
 volumes:
   postgres_data:
-
-networks:
-  rpi-network:
-    external: true

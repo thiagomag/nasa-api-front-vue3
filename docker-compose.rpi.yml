@@ -4,3 +4,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    networks:
+      - rpi-network
+
+networks:
+  rpi-network:
+    external: true

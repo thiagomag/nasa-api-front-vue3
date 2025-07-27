@@ -4,3 +4,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    networks:
+      - windows-network
+
+networks:
+  windows-network:
+    external: true
