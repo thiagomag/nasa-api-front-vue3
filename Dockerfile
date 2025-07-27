@@ -4,9 +4,16 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-FROM nginx:alpine AS production-stage
+# Estágio de Produção
+FROM nginx:stable-alpine
+
+# Copia a configuração personalizada do Nginx que criamos
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copia os arquivos da aplicação Vue construídos
 COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+
 EXPOSE 80
-CMD ["/entrypoint.sh"]
+
+# O comando padrão do Nginx já é suficiente
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,9 +1,6 @@
 services:
   nasa-api-front-vue3:
     image: thiagomag/nasa-api-front-vue3:rpi
-    build:
-      context: .
-      dockerfile: Dockerfile
     networks:
       - rpi-network
 

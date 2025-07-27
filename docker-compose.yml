@@ -1,10 +1,8 @@
 services:
   nasa-api-front-vue3:
     container_name: nasa-api-front-vue3
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8082:80"
-    environment:
-      - VITE_API_URL=http://nasa-api-backend:8081
-
-volumes:
-  postgres_data:

@@ -75,10 +75,7 @@
         }
   
         try {
-          const defaultApiUrl = 'http://localhost:8080';
-          const apiUrl = window.VITE_API_URL || defaultApiUrl;
-
-          const response = await axios.post(`${apiUrl}/api/neos`, {
+          const response = await axios.post(`/api/neos`, {
             start_date: this.selectedStartDate,
             end_date: this.selectedEndDate
           });
