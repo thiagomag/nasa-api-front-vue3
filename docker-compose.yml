@@ -1,6 +1,6 @@
 services:
-  api-gateway-fiap-service:
-    container_name: api-gateway-fiap-service
+  nasa-api-front-vue3:
+    container_name: nasa-api-front-vue3
     ports:
       - "8081:8081"
     networks:
