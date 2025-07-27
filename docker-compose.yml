@@ -11,3 +11,4 @@ volumes:
 
 networks:
   rpi-network:
+    external: true
