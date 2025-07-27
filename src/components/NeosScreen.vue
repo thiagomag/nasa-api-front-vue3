@@ -75,7 +75,7 @@
         }
   
         try {
-          const response = await axios.post(`/api/neos`, {
+          const response = await axios.post(`/nasa-backend/api/neos`, {
             start_date: this.selectedStartDate,
             end_date: this.selectedEndDate
           });
