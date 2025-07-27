@@ -2,7 +2,9 @@ services:
   nasa-api-front-vue3:
     container_name: nasa-api-front-vue3
     ports:
-      - "8081:8081"
+      - "8082:80"
+    environment:
+      - VITE_API_URL=http://localhost:8080
     networks:
       - rpi-network
 
