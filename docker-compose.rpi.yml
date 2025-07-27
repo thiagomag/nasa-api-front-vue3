@@ -1,0 +1,6 @@
+services:
+  api-gateway-fiap-service:
+    image: thiagomag/nasa-api-backend:rpi
+    build:
+      context: .
+      dockerfile: Dockerfile

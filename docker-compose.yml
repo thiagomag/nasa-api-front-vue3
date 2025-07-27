@@ -1,0 +1,13 @@
+services:
+  api-gateway-fiap-service:
+    container_name: api-gateway-fiap-service
+    ports:
+      - "8081:8081"
+    networks:
+      - rpi-network
+
+volumes:
+  postgres_data:
+
+networks:
+  rpi-network:
