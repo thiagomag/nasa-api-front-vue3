@@ -1,8 +1,7 @@
 services:
   nasa-api-front-vue3:
     container_name: nasa-api-front-vue3
+    restart: unless-stopped 
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "8082:80"
